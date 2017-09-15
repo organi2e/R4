@@ -53,10 +53,10 @@ template<uint depth>float4 trace(float3 const direction, float3 const origin, ui
 				colour += max(0.0, dot(direction, reflect(light_v, object_n)));
 		
 			colour += float4(0.9, 0.8, 1.0, 1) * trace<depth-1>(reflect(direction, object_n),
-																		 object_p, count, objects, hit.first);
+																													object_p, count, objects, hit.first);
 
-//			colour += 0.5 * trace<depth-1>(refract(direction, object_n, 0.1),
-//																		 object_p, count, objects, hit.first);
+			colour += float4(0.9, 0.8, 0.7, 1) * trace<depth-1>(refract(direction, object_n, 0.1),
+																													object_p, count, objects, hit.first);
 		}
 	}
 	return colour * mask;
@@ -71,5 +71,5 @@ kernel void trace(texture2d<float, access::write> texture [[ texture(0) ]],
 									uint2 const K [[ threads_per_grid ]]) {
 	float3 const origin = float3(0, 0, -3);
 	float3 const direction = normalize(float3(2*float2(k)/float2(K)-1, 2));
-	texture.write(saturate(trace<4>(direction, origin, count, objects, -1)), k);
+	texture.write(saturate(trace<8>(direction, origin, count, objects, -1)), k);
 };

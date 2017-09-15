@@ -27,6 +27,9 @@
 		877221A21F6B77FD008FBFA6 /* Plane.metal in Sources */ = {isa = PBXBuildFile; fileRef = 877221991F6B77FD008FBFA6 /* Plane.metal */; };
 		877221A31F6B77FD008FBFA6 /* Sphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 8772219A1F6B77FD008FBFA6 /* Sphere.h */; };
 		877221A41F6B77FD008FBFA6 /* Plane.h in Headers */ = {isa = PBXBuildFile; fileRef = 8772219B1F6B77FD008FBFA6 /* Plane.h */; };
+		877221BC1F6BEC17008FBFA6 /* Triangle.metal in Sources */ = {isa = PBXBuildFile; fileRef = 877221B91F6BEC17008FBFA6 /* Triangle.metal */; };
+		877221BD1F6BEC17008FBFA6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877221BA1F6BEC17008FBFA6 /* Triangle.swift */; };
+		877221BE1F6BEC17008FBFA6 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 877221BB1F6BEC17008FBFA6 /* Triangle.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		877221991F6B77FD008FBFA6 /* Plane.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Plane.metal; path = ../../R4/Plane.metal; sourceTree = "<group>"; };
 		8772219A1F6B77FD008FBFA6 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sphere.h; path = ../../R4/Sphere.h; sourceTree = "<group>"; };
 		8772219B1F6B77FD008FBFA6 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plane.h; path = ../../R4/Plane.h; sourceTree = "<group>"; };
+		877221B91F6BEC17008FBFA6 /* Triangle.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Triangle.metal; path = ../../R4/Triangle.metal; sourceTree = "<group>"; };
+		877221BA1F6BEC17008FBFA6 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Triangle.swift; path = ../../R4/Triangle.swift; sourceTree = "<group>"; };
+		877221BB1F6BEC17008FBFA6 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Triangle.h; path = ../../R4/Triangle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,9 @@
 		877221621F6B7791008FBFA6 /* R4 */ = {
 			isa = PBXGroup;
 			children = (
+				877221B91F6BEC17008FBFA6 /* Triangle.metal */,
+				877221BA1F6BEC17008FBFA6 /* Triangle.swift */,
+				877221BB1F6BEC17008FBFA6 /* Triangle.h */,
 				877221961F6B77FD008FBFA6 /* Scene.h */,
 				877221931F6B77FD008FBFA6 /* Scene.metal */,
 				877221971F6B77FD008FBFA6 /* Scene.swift */,
@@ -199,6 +208,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877221BE1F6BEC17008FBFA6 /* Triangle.h in Headers */,
 				877221731F6B7791008FBFA6 /* R4.h in Headers */,
 				877221A41F6B77FD008FBFA6 /* Plane.h in Headers */,
 				8772219F1F6B77FD008FBFA6 /* Scene.h in Headers */,
@@ -360,6 +370,8 @@
 				8772219C1F6B77FD008FBFA6 /* Scene.metal in Sources */,
 				877221A21F6B77FD008FBFA6 /* Plane.metal in Sources */,
 				877221A11F6B77FD008FBFA6 /* Sphere.metal in Sources */,
+				877221BC1F6BEC17008FBFA6 /* Triangle.metal in Sources */,
+				877221BD1F6BEC17008FBFA6 /* Triangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +789,7 @@
 				877221531F6B7316008FBFA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		877221791F6B7791008FBFA6 /* Build configuration list for PBXNativeTarget "R4" */ = {
 			isa = XCConfigurationList;
@@ -785,6 +798,7 @@
 				8772217B1F6B7791008FBFA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8772217C1F6B7791008FBFA6 /* Build configuration list for PBXNativeTarget "R4Tests" */ = {
 			isa = XCConfigurationList;
@@ -793,6 +807,7 @@
 				8772217E1F6B7791008FBFA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
