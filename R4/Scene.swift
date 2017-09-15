@@ -44,10 +44,10 @@ public class Scene {
 		assert( commandBuffer.device === pipeline.device )
 		let encoder: MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
 		let objects: Array<ObjectInterface> = [Plane(center: float3(0, -1, 0), normal: float3(0, 1, 0)),
-		                                       Sphere(center: float3(0, 3, 1), radius: 1),
-		                                       Sphere(center: float3(-0.5, 0.5, 1), radius: 0.5),
-		                                       Sphere(center: float3( 0.5, 1.0, 1.5), radius: 1.0),
-		                                       //Sphere(center: float3(arrayLiteral: -0.5, 0.5,-1), radius: 0.8),
+		                                       Triangle(a: float3(0, 1, 2.5), b: float3(-1.5, 0.1, 2), c: float3( 1.5, 0.1, 2)),
+		                                       Sphere(center: float3(0, 3, 1), radius: 0.3),
+		                                       Sphere(center: float3(-0.5, 0.5, 1), radius: 0.3),
+		                                       Sphere(center: float3( 0.5, 1.0, 1.5), radius: 0.3),
 		                                       ]
 		encoder.setComputePipelineState(pipeline)
 		encoder.setTexture(texture, at: 0)
