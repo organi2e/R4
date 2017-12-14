@@ -37,12 +37,13 @@ public class Scene {
 		                                                            height: groups.height * threads.height,
 		                                                            mipmapped: false)
 		descriptor.usage = [.shaderWrite, .shaderRead]
-		texture = device.makeTexture(descriptor: descriptor)
+		guard let mtltexture: MTLTexture = device.makeTexture(descriptor: descriptor) else { throw NSError(domain: #function, code: #line, userInfo: nil) }
+		texture = mtltexture
 	}
 	public func draw(commandBuffer: MTLCommandBuffer) -> MTLTexture {
 		assert( commandBuffer.device === texture.device )
 		assert( commandBuffer.device === pipeline.device )
-		let encoder: MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
+		guard let encoder: MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder() else { return texture }
 		let objects: Array<ObjectInterface> = [Plane(center: float3(0, -1, 0), normal: float3(0, 1, 0)),
 		                                       Triangle(a: float3(0, 1, 2.5), b: float3(-1.5, 0.1, 2), c: float3( 1.5, 0.1, 2)),
 		                                       Sphere(center: float3(0, 3, 1), radius: 0.3),
@@ -50,9 +51,9 @@ public class Scene {
 		                                       Sphere(center: float3( 0.5, 1.0, 1.5), radius: 0.3),
 		                                       ]
 		encoder.setComputePipelineState(pipeline)
-		encoder.setTexture(texture, at: 0)
-		encoder.setBytes([uint(objects.count)], length: MemoryLayout<uint>.size, at: 0)
-		encoder.setBytes(objects.map { $0.object }, length: MemoryLayout<Object>.stride * objects.count, at: 1)
+		encoder.setTexture(texture, index: 0)
+		encoder.setBytes([uint(objects.count)], length: MemoryLayout<uint>.size, index: 0)
+		encoder.setBytes(objects.map { $0.object }, length: MemoryLayout<Object>.stride * objects.count, index: 1)
 		encoder.dispatchThreadgroups(groups, threadsPerThreadgroup: threads)
 		encoder.endEncoding()
 		return texture

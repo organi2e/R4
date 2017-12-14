@@ -85,11 +85,11 @@ extension ViewController: MTKViewDelegate {
 		}
 //		context?.render(image.applyingGaussianBlur(withSigma: 0.1), to: texture, commandBuffer: commandBuffer, bounds: CGRect(x: 0, y: 0, width: texture.width, height: texture.height), colorSpace: CGColorSpaceCreateDeviceRGB())
 		
-		let encoder: MTLRenderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)
+		guard let encoder: MTLRenderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor) else { return }
 		encoder.setRenderPipelineState(pipeline)
-		encoder.setVertexBuffer(vertices, offset: 0, at: 0)
-		encoder.setFragmentTexture(texture, at: 0)
-		encoder.setFragmentSamplerState(sampler, at: 0)
+		encoder.setVertexBuffer(vertices, offset: 0, index: 0)
+		encoder.setFragmentTexture(texture, index: 0)
+		encoder.setFragmentSamplerState(sampler, index: 0)
 		encoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
 		encoder.endEncoding()
 		commandBuffer.present(drawable)

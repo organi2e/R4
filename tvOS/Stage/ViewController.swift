@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 			descriptor.fragmentFunction = library.makeFunction(name: "fragment_main")
 			descriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
 			pipeline = try device.makeRenderPipelineState(descriptor: descriptor)
-			scene = try Scene(device: device, width: 512, height: 512)
+			scene = try Scene(device: device, width: 1024, height: 1024)
 		} catch {
 			fatalError(String(describing: error))
 		}
